@@ -31,7 +31,7 @@ sub aclOptimize { # ( @ACL )
             if( isValidSubnet( $optimized[$c] ) && isValidSubnet( $optimized[$c+1] ) ) {
                 my( $start1, $stop1 ) = subnetStartStop( $optimized[$c] );
                 my( $start2, $stop2 ) = subnetStartStop( $optimized[$c+1] );
-                
+               
                 # Identical / remove by skipping
                 if( ( $start1 == $start2 ) && ( $stop1 == $stop2 ) ) {
                     push( @new_optimized, $optimized[$c] );
@@ -64,8 +64,8 @@ sub aclOptimize { # ( @ACL )
                        $c++;
                     }
 
-                # if not, just move on
-                else { push( @new_optimized, $optimized[$c] ) }
+                    # if not, just move on
+                    else { push( @new_optimized, $optimized[$c] ) }
             
                 }
 
@@ -180,10 +180,25 @@ sub subnetIntersect { # ( $subnet1, $subnet2 )
     my $result = 0;
     my( $start1, $stop1 ) = subnetStartStop( $subnet1 );
     my( $start2, $stop2 ) = subnetStartStop( $subnet2 );
-    $result = $stop1 - $start2 + 1;
-
-    if( $result < 0 ) { $result = 0 }
-
+    if( $start2 >= $start1 ) {
+        if( $stop2 <= $stop1 ) {
+            # $subnet2 is fully contained in $subnet1
+            $result = $stop2 - $start2;
+        }
+        else {
+            $result = $stop1 - $start2;
+        }
+    }
+    else {
+        if( $stop2 >= $stop1 ) {
+            # subnet1 is fully contained in $subnet1
+            $result = $stop2 - $start1;
+        }
+        else {
+            $result = $stop2 - $start1;
+        }
+    }
+    
     return $result;
 }
 
