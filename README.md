@@ -1,5 +1,8 @@
 # ACL-tools
-ACL tool optimization tools
+
+If you are working with ACLs on routers or in DNS views, these few tools might be useful, especially the <b>optimizeACL.pl</b> which can take a very large ACL (for example IP allocations by country from one of the NICs) and create an optimized, smaller ACL (=faster parsing by router or DNS server).
+
+All scripts work like filters so you can pipe through them.
 
 <pre>
 <i>nik@nik-laptop:~/Dropbox/Lab/ACL$ <b>cat *.acl</b></i>
