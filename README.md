@@ -2,7 +2,7 @@
 
 If you are working with ACLs on routers or in DNS views, you might find these tools useful.
 
-<b>optimizeACL.pl</b> is the creme of this crop, and the main reason why it was made.  It will take take a very large ACL (for example IP allocations by country from one of the NICs) and create an optimized, smaller ACL (= faster parsing by router or DNS server).
+<b>optimizeACL.pl</b> is the creme of this crop, and the main reason why it was written.  It will take take a very large ACL (for example IP allocations by <a href="ftp://ftp.apnic.net/pub/stats/afrinic/">one of the NICs</a>) and create an optimized, smaller ACL (= faster parsing by router or DNS server).
 
 All scripts work like filters so you can pipe through them.  See examples below how to use.  All the functions are in ACL.pm so you can add a few more tools yourself using them.
 
