@@ -1,10 +1,12 @@
 # ACL-tools
 
-If you are working with ACLs on routers or in DNS views, you might find these few tools useful.
+If you are working with ACLs on routers or in DNS views, you might find these tools useful.
 
-<b>optimizeACL.pl</b> is the creme of this toolset.  It will take take a very large ACL (for example IP allocations by country from one of the NICs) and create an optimized, smaller ACL (= faster parsing by router or DNS server).
+<b>optimizeACL.pl</b> is the creme of this crop, and the main reason why it was made.  It will take take a very large ACL (for example IP allocations by country from one of the NICs) and create an optimized, smaller ACL (= faster parsing by router or DNS server).
 
-All scripts work like filters so you can pipe through them.
+All scripts work like filters so you can pipe through them.  See examples below how to use.  All the functions are in ACL.pm so you can add a few more tools yourself using them.
+
+The key to solving this problem was the concept that you can convert an IP number to an integer (0.0.0.0 = 0, 255.255.255.255 = 4,228,250,625), what's called a "long IP represenation."  This way you convert a subnet to an array of integers.  It is then easy to count IPs or sort the ACL.  To optimize you merge two arrays, and then convert the range back to a subnet.  Repeat.
 
 <pre>
 <i>nik@nik-laptop:~/Dropbox/Lab/ACL$ <b>cat *.acl</b></i>
