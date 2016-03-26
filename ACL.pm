@@ -191,8 +191,8 @@ sub subnetIntersect { # ( $subnet1, $subnet2 )
     }
     else {
         if( $stop2 >= $stop1 ) {
-            # subnet1 is fully contained in $subnet1
-            $result = $stop2 - $start1;
+            # subnet1 is fully contained in $subnet2
+            $result = $stop1 - $start1;
         }
         else {
             $result = $stop2 - $start1;
