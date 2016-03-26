@@ -35,6 +35,10 @@ Total IPs: 258
 Total IPs: 16777216
 <i>nik@nik-laptop:~/Dropbox/Lab/ACL$ <b>cat sample4.acl | ./countIP.pl</b></i>
 Total IPs: 17825792
+<i>nik@nik-laptop:~/Dropbox/Lab/ACL$ <b>cat *.acl | ./countIP.pl</b></i> 
+Total IPs: 51512322
+<i>nik@nik-laptop:~/Dropbox/Lab/ACL$ <b>cat *.acl | ./optimizeACL.pl | ./countIP.pl</b></i> 
+Total IPs: 34603266
 <i>nik@nik-laptop:~/Dropbox/Lab/ACL$ <b>cat sample1.acl</b></i>
 192.168.1.0/24;
 10.10.10.0/24;
